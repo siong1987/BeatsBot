@@ -1,0 +1,20 @@
+<% if flash[:notice] %>
+  <p class="alert alert-success"><%= flash[:notice] %>
+<% end %>
+
+<% if login? %>
+  <a href='/logout'>Logout</a>
+<% else %>
+  <a href='/auth/slack'>Sign in with Slack</a>
+<% end %>
+
+<% if login? %>
+<form action="/token" method="post" role="form">
+ <div class="form-group">
+   <label for="post_title">Token:</label>
+   <br>
+   <input id="token" class="form-control" name="token" type="text" value="<%= @token %>" style="width=90%" />
+ </div>
+ <button type="submit" class="btn btn-success">Submit</button>
+</form>
+<% end %>

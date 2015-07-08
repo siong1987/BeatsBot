@@ -14,10 +14,11 @@
 ActiveRecord::Schema.define(version: 20150708031610) do
 
   create_table "users", force: :cascade do |t|
-    t.string "slack_user_id",   null: false
-    t.string "slack_bot_token"
+    t.string  "slack_user_id",                  null: false
+    t.string  "slack_bot_token"
+    t.boolean "enabled",         default: true
   end
 
-  add_index "users", ["slack_user_id"], name: "index_users_on_slack_user_id"
+  add_index "users", ["slack_user_id"], name: "index_users_on_slack_user_id", unique: true
 
 end
