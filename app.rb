@@ -1,17 +1,12 @@
 require 'sinatra'
-require 'sinatra/activerecord'
 require 'sinatra/flash'
 require 'sinatra/redirect_with_flash'
 
 require 'omniauth'
 require 'omniauth-slack'
-require 'byebug'
 
+require './model/base'
 require './environments'
-
-class User < ActiveRecord::Base
-  validates :slack_user_id, presence: true, uniqueness: true
-end
 
 use Rack::Session::Cookie, secret: ENV['COOKIE_SECRET']
 use OmniAuth::Builder do

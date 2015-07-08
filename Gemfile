@@ -10,6 +10,11 @@ gem 'sinatra-redirect-with-flash'
 gem 'omniauth'
 gem 'omniauth-slack'
 
+gem 'sidekiq'
+gem 'sidetiq'
+
+gem 'faraday'
+
 group :development do
   gem 'dotenv'
   gem 'shotgun'
