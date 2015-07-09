@@ -14,6 +14,7 @@ gem 'sidekiq'
 gem 'sidetiq'
 
 gem 'faraday'
+gem 'itunes-search-api'
 
 group :development do
   gem 'dotenv'

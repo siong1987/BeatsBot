@@ -16,14 +16,17 @@ ActiveRecord::Schema.define(version: 20150708081655) do
   create_table "beats", force: :cascade do |t|
     t.string   "title",      null: false
     t.string   "artist",     null: false
+    t.string   "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string  "slack_user_id",                    null: false
-    t.string  "slack_webhook_url"
-    t.boolean "enabled",           default: true
+    t.string   "slack_user_id",                    null: false
+    t.string   "slack_webhook_url"
+    t.boolean  "enabled",           default: true
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   add_index "users", ["slack_user_id"], name: "index_users_on_slack_user_id", unique: true

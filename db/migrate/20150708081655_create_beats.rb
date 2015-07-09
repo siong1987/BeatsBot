@@ -3,6 +3,7 @@ class CreateBeats < ActiveRecord::Migration
     create_table :beats do |t|
       t.string :title, null: false
       t.string :artist, null: false
+      t.string :url
 
       t.timestamps null: false
     end
