@@ -1,5 +1,23 @@
 /* Shared
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+html, body {
+  height: 100%;
+}
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -40px;
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  height: 40px;
+}
+.site-footer {
+  text-align: center;
+}
 
 /* Sections
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
