@@ -1,5 +1,6 @@
 require './beats1/now_playing'
 require 'itunes-search-api'
+require 'opengraph_parser'
 
 class BeatWorker
   include Sidekiq::Worker
@@ -25,7 +26,13 @@ class BeatWorker
       STDERR.puts "ITunesSearch error: #{e}"
     end
 
-    beat = Beat.create(title: title, artist: artist, url: url)
+    image_url = ""
+    if url
+      og = OpenGraph.new(url)
+      image_url = og.images.first
+    end
+
+    beat = Beat.create(title: title, artist: artist, url: url, image_url: image_url)
     User.find_each do |user|
       SlackWorker.perform_async(user.id, beat.id)
     end

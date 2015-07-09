@@ -4,6 +4,7 @@ class CreateBeats < ActiveRecord::Migration
       t.string :title, null: false
       t.string :artist, null: false
       t.string :url
+      t.string :image_url
 
       t.timestamps null: false
     end

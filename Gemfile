@@ -15,6 +15,7 @@ gem 'sidetiq'
 
 gem 'faraday'
 gem 'itunes-search-api'
+gem 'opengraph_parser'
 
 group :development do
   gem 'dotenv'
