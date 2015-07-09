@@ -1,20 +1,43 @@
-<% if flash[:notice] %>
-  <p class="alert alert-success"><%= flash[:notice] %>
-<% end %>
-
 <% if login? %>
+  <div class="section hero">
+    <div class="container">
+      <div class="row">
+        <div class="one-half column">
+          <h4 class="hero-heading">To get started.</h4>
+          <h4 class="hero-sub-heading">Create an incoming webhook on Slack from <a href="https://slack.com/services/new/incoming-webhook">here</a>. Then copy the webhook URL to the text field below and submit. That's it!</h4>
+          <h4 class="hero-sub-heading">To stop, just delete that incoming webhook integration from Slack.</h4>
+        </div>
+      </div>
+      <form action="/webhook" method="post">
+        <div class="row">
+          <div class="eight columns">
+            <label for="webhookInput">Your Slack Webhook URL</label>
+            <input id="webhook" class="u-full-width" name="slack_webhook_url" type="text" placeholder="https://webhook.com" value="<%= @slack_webhook_url %>" />
+          </div>
+        </div>
+        <input class="button-primary" type="submit" value="Submit">
+      <% if flash[:notice] %>
+        <div class="row">
+          <p class="alert alert-success"><%= flash[:notice] %>
+        </div>
+      <% end %>
+      </form>
+    </div>
+  </div>
   <a href='/logout'>Logout</a>
 <% else %>
-  <a href='/auth/slack'>Sign in with Slack</a>
-<% end %>
-
-<% if login? %>
-<form action="/token" method="post" role="form">
- <div class="form-group">
-   <label for="post_title">Slack Webhook URL:</label>
-   <br>
-   <input id="token" class="form-control" name="slack_webhook_url" type="text" value="<%= @slack_webhook_url %>" style="width=90%" />
- </div>
- <button type="submit" class="btn btn-success">Submit</button>
-</form>
+  <div class="section hero">
+    <div class="container">
+      <div class="row">
+        <div class="one-half column">
+          <h4 class="hero-heading">BeatsBot pipes in the current Beats 1 song live into a Slack channel.</h4>
+          <h4 class="hero-sub-heading">So that you can show your coworkers how good you are in music.</h4>
+          <a class="button button-primary" href="/auth/slack">Sign in with Slack to Start</a>
+        </div>
+        <div class="one-half column screenshot">
+          <img src="images/screenshot.png">
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>

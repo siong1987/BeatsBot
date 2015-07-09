@@ -13,6 +13,10 @@ use OmniAuth::Builder do
   provider :slack, ENV['SLACK_CLIENT_ID'], ENV['SLACK_CLIENT_SECRET'], scope: 'identify'
 end
 
+configure do
+  set :public_folder, 'public'
+end
+
 helpers do
   def current_user
     @user ||= User.find_by(id: session[:uid])
@@ -28,9 +32,9 @@ get '/' do
   erb :home
 end
 
-post '/token' do
+post '/webhook' do
   current_user.update_attribute(:slack_webhook_url, params[:slack_webhook_url])
-  redirect '/', notice: 'Webhook URL updated!'
+  redirect '/', notice: 'Webhook URL added!'
 end
 
 get '/logout' do
