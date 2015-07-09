@@ -1,4 +1,6 @@
 require 'sinatra'
+require 'faraday'
+require 'uri'
 
 require './model/base'
 require './environments'
@@ -20,9 +22,26 @@ get '/done' do
 end
 
 post '/webhook' do
-  # TODO: check URL here
-  Webhook.find_or_create_by(url: params[:slack_webhook_url])
-  redirect '/done'
+  url = params[:slack_webhook_url]
+  if url =~ URI::regexp
+    beat = Beat.last
+    begin
+      response = Webhook.post_to_slack(url, beat)
+    rescue
+      redirect '/start'
+      return
+    end
+
+    if response.status != 200
+      redirect '/start'
+      return
+    end
+
+    Webhook.find_or_create_by(url: url)
+    redirect '/done'
+  else
+    redirect '/start'
+  end
 end
 
 get '/logout' do
