@@ -1,4 +1,4 @@
 require 'sinatra/activerecord'
 
-require './model/user'
+require './model/webhook'
 require './model/beat'

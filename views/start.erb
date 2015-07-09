@@ -1,0 +1,20 @@
+<div class="section hero">
+  <div class="container">
+    <div class="row">
+      <div class="one-half column">
+        <h4 class="hero-heading">To get started.</h4>
+        <h4 class="hero-sub-heading">Create an incoming webhook on Slack from <a href="https://slack.com/services/new/incoming-webhook">here</a>. Then copy the webhook URL to the text field below and submit. That's it!</h4>
+        <h4 class="hero-sub-heading">To stop, just delete that incoming webhook integration from Slack.</h4>
+      </div>
+    </div>
+    <form action="/webhook" method="post">
+      <div class="row">
+        <div class="eight columns">
+          <label for="webhookInput">Your Slack Webhook URL</label>
+          <input id="webhook" class="u-full-width" name="slack_webhook_url" type="text" placeholder="https://webhook.com" value="" />
+        </div>
+      </div>
+      <input class="button-primary" type="submit" value="Submit">
+    </form>
+  </div>
+</div>

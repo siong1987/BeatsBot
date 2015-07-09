@@ -24,10 +24,8 @@ GEM
       timers (~> 4.0.0)
     columnize (0.9.0)
     connection_pool (2.2.0)
-    dotenv (2.0.2)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
-    hashie (3.4.2)
     hitimes (1.2.2)
     httparty (0.13.5)
       json (~> 1.8)
@@ -37,30 +35,12 @@ GEM
     itunes-search-api (0.1.0)
       httparty
     json (1.8.3)
-    jwt (1.5.1)
     mini_portile (0.6.2)
     minitest (5.7.0)
-    multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
-    oauth2 (1.0.0)
-      faraday (>= 0.8, < 0.10)
-      jwt (~> 1.0)
-      multi_json (~> 1.3)
-      multi_xml (~> 0.5)
-      rack (~> 1.2)
-    omniauth (1.2.2)
-      hashie (>= 1.2, < 4)
-      rack (~> 1.0)
-    omniauth-oauth2 (1.2.0)
-      faraday (>= 0.8, < 0.10)
-      multi_json (~> 1.3)
-      oauth2 (~> 1.0)
-      omniauth (~> 1.2)
-    omniauth-slack (2.0.0)
-      omniauth-oauth2 (~> 1.2.0)
     opengraph_parser (0.2.3)
       addressable
       nokogiri
@@ -100,10 +80,6 @@ GEM
     sinatra-activerecord (2.0.6)
       activerecord (>= 3.2)
       sinatra (~> 1.0)
-    sinatra-flash (0.3.0)
-      sinatra (>= 1.0.0)
-    sinatra-redirect-with-flash (0.2.1)
-      sinatra (>= 1.0.0)
     sqlite3 (1.3.10)
     thread_safe (0.3.5)
     tilt (2.0.1)
@@ -123,11 +99,8 @@ PLATFORMS
 DEPENDENCIES
   activerecord
   byebug
-  dotenv
   faraday
   itunes-search-api
-  omniauth
-  omniauth-slack
   opengraph_parser
   pg
   shotgun
@@ -135,8 +108,6 @@ DEPENDENCIES
   sidetiq
   sinatra
   sinatra-activerecord
-  sinatra-flash
-  sinatra-redirect-with-flash
   sqlite3
   tux
 

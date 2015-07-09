@@ -22,14 +22,13 @@ ActiveRecord::Schema.define(version: 20150708081655) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "slack_user_id",                    null: false
-    t.string   "slack_webhook_url"
-    t.boolean  "enabled",           default: true
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+  create_table "webhooks", force: :cascade do |t|
+    t.string   "url"
+    t.boolean  "enabled",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
-  add_index "users", ["slack_user_id"], name: "index_users_on_slack_user_id", unique: true
+  add_index "webhooks", ["url"], name: "index_webhooks_on_url", unique: true
 
 end

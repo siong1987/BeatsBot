@@ -4,11 +4,6 @@ ruby '2.2.2'
 gem 'sinatra'
 gem 'activerecord'
 gem 'sinatra-activerecord'
-gem 'sinatra-flash'
-gem 'sinatra-redirect-with-flash'
-
-gem 'omniauth'
-gem 'omniauth-slack'
 
 gem 'sidekiq'
 gem 'sidetiq'
@@ -18,7 +13,6 @@ gem 'itunes-search-api'
 gem 'opengraph_parser'
 
 group :development do
-  gem 'dotenv'
   gem 'shotgun'
   gem 'sqlite3'
   gem 'byebug'

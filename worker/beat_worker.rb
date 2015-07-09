@@ -33,8 +33,8 @@ class BeatWorker
     end
 
     beat = Beat.create(title: title, artist: artist, url: url, image_url: image_url)
-    User.find_each do |user|
-      SlackWorker.perform_async(user.id, beat.id)
+    Webhook.find_each do |webhook|
+      SlackWorker.perform_async(webhook.id, beat.id)
     end
   end
 end
