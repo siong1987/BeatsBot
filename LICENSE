@@ -1,13 +1,3 @@
-# BeatsBot
-
-BeatsBot pipes in the current Beats 1 song live into a Slack channel.
-
-## Thanks
-
-* [https://github.com/callumj/beats1](https://github.com/callumj/beats1)
-
-## License
-
 The MIT License (MIT)
 
 Copyright (c) 2015 Teng Siong Ong
