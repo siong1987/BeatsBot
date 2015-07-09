@@ -21,9 +21,9 @@ ActiveRecord::Schema.define(version: 20150708081655) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string  "slack_user_id",                  null: false
-    t.string  "slack_bot_token"
-    t.boolean "enabled",         default: true
+    t.string  "slack_user_id",                    null: false
+    t.string  "slack_webhook_url"
+    t.boolean "enabled",           default: true
   end
 
   add_index "users", ["slack_user_id"], name: "index_users_on_slack_user_id", unique: true

@@ -11,9 +11,9 @@
 <% if login? %>
 <form action="/token" method="post" role="form">
  <div class="form-group">
-   <label for="post_title">Token:</label>
+   <label for="post_title">Slack Webhook URL:</label>
    <br>
-   <input id="token" class="form-control" name="token" type="text" value="<%= @token %>" style="width=90%" />
+   <input id="token" class="form-control" name="slack_webhook_url" type="text" value="<%= @slack_webhook_url %>" style="width=90%" />
  </div>
  <button type="submit" class="btn btn-success">Submit</button>
 </form>

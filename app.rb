@@ -24,13 +24,13 @@ helpers do
 end
 
 get '/' do
-  @token = login? ? current_user.slack_bot_token : ''
+  @slack_webhook_url = login? ? current_user.slack_webhook_url : ''
   erb :home
 end
 
 post '/token' do
-  current_user.update_attribute(:slack_bot_token, params[:token])
-  redirect '/', notice: 'Token updated!'
+  current_user.update_attribute(:slack_webhook_url, params[:slack_webhook_url])
+  redirect '/', notice: 'Webhook URL updated!'
 end
 
 get '/logout' do

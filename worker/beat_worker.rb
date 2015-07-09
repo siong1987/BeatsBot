@@ -4,6 +4,7 @@ class BeatWorker
   include Sidekiq::Worker
   include Sidetiq::Schedulable
 
+  sidekiq_options retry: false
   recurrence { minutely }
 
   def perform
@@ -15,7 +16,9 @@ class BeatWorker
       return
     end
 
-    Beat.create(title: title, artist: artist)
-    puts "#{title} - #{artist}"
+    beat = Beat.create(title: title, artist: artist)
+    User.find_each do |user|
+      SlackWorker.perform_async(user.id, beat.id)
+    end
   end
 end
