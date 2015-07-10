@@ -17,6 +17,11 @@ get '/start' do
   erb :start
 end
 
+get '/latest' do
+  song = $redis.get('latest')
+  song
+end
+
 get '/done' do
   erb :done
 end

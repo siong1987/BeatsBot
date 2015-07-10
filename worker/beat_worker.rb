@@ -33,6 +33,7 @@ class BeatWorker
     end
 
     beat = Beat.create(title: title, artist: artist, url: url, image_url: image_url)
+    Beat.update_latest # update redis cache
     Webhook.find_each do |webhook|
       SlackWorker.perform_async(webhook.id, beat.id)
     end
