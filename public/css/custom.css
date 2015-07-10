@@ -54,6 +54,9 @@ html, body {
   .hero-sub-heading {
     font-size: 1.4rem;
   }
+  .hero-subline {
+    font-size: 1.0rem;
+  }
   .section {
     padding: 12rem 0 11rem;
   }
@@ -76,6 +79,9 @@ html, body {
   .hero-sub-heading {
     font-size: 1.6rem;
   }
+  .hero-subline {
+    font-size: 1.2rem;
+  }
   .section {
     padding: 14rem 0 15rem;
   }
@@ -96,6 +102,9 @@ html, body {
   }
   .hero-sub-heading {
     font-size: 2.0rem;
+  }
+  .hero-subline {
+    font-size: 1.6rem;
   }
   .section {
     padding: 20rem 0 19rem;
