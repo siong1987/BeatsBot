@@ -11,12 +11,12 @@ gem 'sidetiq'
 gem 'faraday'
 gem 'itunes-search-api'
 gem 'opengraph_parser'
+gem 'tux'
 
 group :development do
   gem 'shotgun'
   gem 'sqlite3'
   gem 'byebug'
-  gem 'tux'
 end
 
 group :production do
